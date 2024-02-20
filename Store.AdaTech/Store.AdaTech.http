@@ -1,0 +1,6 @@
+@Store.AdaTech_HostAddress = http://localhost:5192
+
+GET {{Store.AdaTech_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
