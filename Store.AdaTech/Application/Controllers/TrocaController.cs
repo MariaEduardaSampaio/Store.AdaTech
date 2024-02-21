@@ -10,9 +10,11 @@ namespace Store.AdaTech.Application.Controllers
     public class TrocaController: Controller
     {
         private ITrocaService _service { get; set; }
-        public TrocaController(ITrocaService service)
+        private ILogger<TrocaController> _logger { get; set; }
+        public TrocaController(ITrocaService service, ILogger<TrocaController> logger)
         {
             _service = service;
+            _logger = logger;
         }
 
         [HttpPost("adicionarTroca", Name = "Adicionar Troca")]
@@ -24,7 +26,8 @@ namespace Store.AdaTech.Application.Controllers
                 return Ok(troca);
             } catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -38,7 +41,8 @@ namespace Store.AdaTech.Application.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -52,7 +56,8 @@ namespace Store.AdaTech.Application.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -66,7 +71,8 @@ namespace Store.AdaTech.Application.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -80,7 +86,8 @@ namespace Store.AdaTech.Application.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
     }

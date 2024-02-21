@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Store.AdaTech.Application.Filters;
+using Store.AdaTech.Domain.Entities;
 using Store.AdaTech.Domain.Interfaces.Services;
 using Store.AdaTech.Domain.Requests;
 
@@ -9,12 +11,32 @@ namespace Store.AdaTech.Application.Controllers
     public class DevolucaoController : Controller
     {
         private IDevolucaoService _service { get; set; }
-        public DevolucaoController(IDevolucaoService service)
+        private ILogger<DevolucaoController> _logger { get; set; }
+        public DevolucaoController(IDevolucaoService service, ILogger<DevolucaoController> logger)
         {
             _service = service;
+            _logger = logger;
+        }
+
+        [HttpGet("testarExcecaoELog", Name = "Testar Exceção e Log")]
+        public IActionResult? TestarExcecaoELog([FromQuery] bool erro)
+        {
+            try
+            {
+                if (erro)
+                    throw new ArgumentException("Lança erro para teste.");
+                else
+                    return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
         }
 
         [HttpPost("adicionarDevolucao", Name = "Adicionar Devolucao")]
+
         public IActionResult AdicionarDevolucao([FromBody] DevolucaoRequest request)
         {
             try
@@ -24,7 +46,8 @@ namespace Store.AdaTech.Application.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -38,7 +61,8 @@ namespace Store.AdaTech.Application.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -52,7 +76,8 @@ namespace Store.AdaTech.Application.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -66,7 +91,8 @@ namespace Store.AdaTech.Application.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -80,7 +106,8 @@ namespace Store.AdaTech.Application.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
     }

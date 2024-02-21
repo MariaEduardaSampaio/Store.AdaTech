@@ -10,9 +10,13 @@ namespace Store.AdaTech.Application.Controllers
     public class ProdutoController : Controller
     {
         private IProdutoService _service { get; set; }
-        public ProdutoController(IProdutoService service)
+        private ILogger<ProdutoController> _logger { get; set; }
+
+        public ProdutoController(IProdutoService service, ILogger<ProdutoController> logger)
         {
             _service = service;
+            _logger = logger;
+
         }
 
 
@@ -26,7 +30,8 @@ namespace Store.AdaTech.Application.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -40,7 +45,8 @@ namespace Store.AdaTech.Application.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -54,7 +60,8 @@ namespace Store.AdaTech.Application.Controllers
                 return Ok(produtos);
             } catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -69,7 +76,8 @@ namespace Store.AdaTech.Application.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
     }

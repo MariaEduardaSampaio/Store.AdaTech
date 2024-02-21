@@ -10,9 +10,11 @@ namespace Store.AdaTech.Application.Controllers
     public class VendaController: Controller
     {
         private IVendaService _service { get; set; }
-        public VendaController(IVendaService service)
+        private ILogger<VendaController> _logger { get; set; }
+        public VendaController(IVendaService service, ILogger<VendaController> logger)
         {
             _service = service;
+            _logger = logger;
         }
 
         [HttpPost("adicionarVenda", Name = "Adicionar Venda")]
@@ -25,7 +27,8 @@ namespace Store.AdaTech.Application.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -39,7 +42,8 @@ namespace Store.AdaTech.Application.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -53,7 +57,8 @@ namespace Store.AdaTech.Application.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -67,7 +72,8 @@ namespace Store.AdaTech.Application.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -81,7 +87,8 @@ namespace Store.AdaTech.Application.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
     }
