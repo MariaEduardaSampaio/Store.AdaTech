@@ -1,5 +1,6 @@
 
 using Store.AdaTech.Application.Filters;
+using Store.AdaTech.Application.Middlewares;
 using Store.AdaTech.Application.Services;
 using Store.AdaTech.Domain.Interfaces.Repositories;
 using Store.AdaTech.Domain.Interfaces.Services;
@@ -12,17 +13,6 @@ namespace Store.AdaTech
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
-            builder.Services.AddCors(options =>
-            {
-                options.AddPolicy("policy",
-                    builder =>
-                    {
-                        builder.WithOrigins("http://localhost:5500")
-                               .AllowAnyHeader()
-                               .AllowAnyMethod();
-                    });
-            });
  
             // adicionar repositorios
             builder.Services.AddSingleton<IDevolucaoRepository, DevolucaoRepository>();
@@ -41,6 +31,17 @@ namespace Store.AdaTech
                 options.Filters.Add<CustomExceptionFilter>()
             );
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("CustomPolicy",
+                    builder =>
+                    {
+                        builder.WithOrigins("https://localhost:5500", "https://localhost:7217")
+                               .AllowAnyHeader()
+                               .AllowAnyMethod();
+                    });
+            });
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
@@ -53,7 +54,8 @@ namespace Store.AdaTech
             }
 
             // adicionar middlewares
-            app.UseCors("policy");
+            app.UseCors("CustomPolicy");
+            app.UseMiddleware<LoggingMiddleware>();
             app.UseHttpsRedirection();
             app.UseAuthorization();
 
