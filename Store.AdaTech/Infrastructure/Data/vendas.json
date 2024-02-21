@@ -88,5 +88,37 @@
     ],
     "ValorTotal": 118.88,
     "RealizadaEm": "2024-02-20T14:52:44.3167781-03:00"
+  },
+  {
+    "Id": 3,
+    "NomeCliente": "Guilherme",
+    "Produtos": [
+      {
+        "Id": 2,
+        "Nome": "Calça jeans",
+        "Descricao": "clara sem bolsos",
+        "Preco": 60.49
+      },
+      {
+        "Id": 4,
+        "Nome": "calça moletom",
+        "Descricao": "cinza",
+        "Preco": 59.98
+      },
+      {
+        "Id": 5,
+        "Nome": "Camiseta",
+        "Descricao": "verde de algodão",
+        "Preco": 19.90
+      },
+      {
+        "Id": 5,
+        "Nome": "Camiseta",
+        "Descricao": "verde de algodão",
+        "Preco": 19.90
+      }
+    ],
+    "ValorTotal": 160.27,
+    "RealizadaEm": "2024-02-21T12:12:59.0177781-03:00"
   }
 ]

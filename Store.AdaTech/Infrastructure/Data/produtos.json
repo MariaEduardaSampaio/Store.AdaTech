@@ -1,50 +1,56 @@
 [
-    {
-        "Id": 0,
-        "Nome": "Blusa",
-        "Descricao": "vermelha de algodão lisa",
-        "Preco": 20.00
-    },
-    {
-        "Id": 1,
-        "Nome": "Blusa",
-        "Descricao": "azul de poliester",
-        "Preco": 23.00
-    },
-    {
-        "Id": 2,
-        "Nome": "Calça jeans",
-        "Descricao": "clara sem bolsos",
-        "Preco": 60.49
-    },
-    {
-        "Id": 3,
-        "Nome": "Camiseta",
-        "Descricao": "branca com símbolo do Nirvana",
-        "Preco": 35.90
-    },
-    {
-        "Id": 4,
-        "Nome": "calça moletom",
-        "Descricao": "cinza",
-        "Preco": 59.98
-    },
-    {
-        "Id": 5,
-        "Nome": "Camiseta",
-        "Descricao": "verde de algodão",
-        "Preco": 19.90
-    },
-    {
-        "Id": 6,
-        "Nome": "Short jeans",
-        "Descricao": "escuro com rasgados",
-        "Preco": 59.90
-    },
-    {
-        "Id": 7,
-        "Nome": "Bermuda",
-        "Descricao": "amarela com desenhos",
-        "Preco": 49.92
-    }
+  {
+    "Id": 0,
+    "Nome": "Blusa",
+    "Descricao": "vermelha de algodão lisa",
+    "Preco": 20.00
+  },
+  {
+    "Id": 1,
+    "Nome": "Blusa",
+    "Descricao": "azul de poliester",
+    "Preco": 23.00
+  },
+  {
+    "Id": 2,
+    "Nome": "Calça jeans",
+    "Descricao": "clara sem bolsos",
+    "Preco": 60.49
+  },
+  {
+    "Id": 3,
+    "Nome": "Camiseta",
+    "Descricao": "branca com símbolo do Nirvana",
+    "Preco": 35.90
+  },
+  {
+    "Id": 4,
+    "Nome": "calça moletom",
+    "Descricao": "cinza",
+    "Preco": 59.98
+  },
+  {
+    "Id": 5,
+    "Nome": "Camiseta",
+    "Descricao": "verde de algodão",
+    "Preco": 19.90
+  },
+  {
+    "Id": 6,
+    "Nome": "Short jeans",
+    "Descricao": "escuro com rasgados",
+    "Preco": 59.90
+  },
+  {
+    "Id": 7,
+    "Nome": "Bermuda",
+    "Descricao": "amarela com desenhos",
+    "Preco": 49.92
+  },
+  {
+    "Id": 8,
+    "Nome": "Camisa",
+    "Descricao": "roxa com smile",
+    "Preco": 30.41
+  }
 ]
