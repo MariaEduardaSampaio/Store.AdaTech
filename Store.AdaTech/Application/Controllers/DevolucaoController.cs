@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using Store.AdaTech.Application.Filters;
 using Store.AdaTech.Domain.Entities;
 using Store.AdaTech.Domain.Interfaces.Services;
@@ -18,6 +19,7 @@ namespace Store.AdaTech.Application.Controllers
             _logger = logger;
         }
 
+       // [EnableCors("localhost")]
         [HttpGet("testarExcecaoELog", Name = "Testar Exceção e Log")]
         public IActionResult? TestarExcecaoELog([FromQuery] bool erro)
         {
