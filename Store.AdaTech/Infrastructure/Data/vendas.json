@@ -120,5 +120,31 @@
     ],
     "ValorTotal": 160.27,
     "RealizadaEm": "2024-02-21T12:12:59.0177781-03:00"
+  },
+  {
+    "Id": 4,
+    "NomeCliente": "Gustavo",
+    "Produtos": [
+      {
+        "Id": 2,
+        "Nome": "Calça jeans",
+        "Descricao": "clara sem bolsos",
+        "Preco": 60.49
+      },
+      {
+        "Id": 3,
+        "Nome": "Camiseta",
+        "Descricao": "branca com símbolo do Nirvana",
+        "Preco": 35.90
+      },
+      {
+        "Id": 4,
+        "Nome": "calça moletom",
+        "Descricao": "cinza",
+        "Preco": 59.98
+      }
+    ],
+    "ValorTotal": 156.37,
+    "RealizadaEm": "2024-02-21T18:46:30.3240753-03:00"
   }
 ]
