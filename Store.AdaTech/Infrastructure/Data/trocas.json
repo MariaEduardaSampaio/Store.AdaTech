@@ -1,0 +1,54 @@
+[
+    {
+        "Id": 0,
+        "NomeCliente": "Raquel",
+        "ProdutosAnteriores": [
+            {
+                "Id": 6,
+                "Nome": "Short jeans",
+                "Descricao": "escuro com rasgados",
+                "Preco": 59.90
+            }
+        ],
+        "ProdutosAtuais": [
+            {
+                "Id": 6,
+                "Nome": "Short jeans",
+                "Descricao": "escuro com rasgados",
+                "Preco": 59.90
+            },
+            {
+                "Id": 7,
+                "Nome": "Bermuda",
+                "Descricao": "amarela com desenhos",
+                "Preco": 49.92
+            }
+        ],
+        "ValorTotal": 109.82,
+        "Diferenca": 49.92,
+        "RealizadaEm": "2024-02-20T14:15:23.0862881-03:00"
+    },
+    {
+        "Id": 1,
+        "NomeCliente": "Gustavo",
+        "ProdutosAnteriores": [
+            {
+                "Id": 7,
+                "Nome": "Bermuda",
+                "Descricao": "amarela com desenhos",
+                "Preco": 49.92
+            }
+        ],
+        "ProdutosAtuais": [
+            {
+                "Id": 6,
+                "Nome": "Short jeans",
+                "Descricao": "escuro com rasgados",
+                "Preco": 59.90
+            }
+        ],
+        "ValorTotal": 59.90,
+        "Diferenca": 9.98,
+        "RealizadaEm": "2024-02-20T14:16:23.4598013-03:00"
+    }
+]

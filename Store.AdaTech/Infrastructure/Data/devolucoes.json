@@ -1,0 +1,120 @@
+[
+    {
+        "Id": 0,
+        "NomeCliente": "Maria",
+        "Produtos": [
+            {
+                "Id": 1,
+                "Nome": "Blusa",
+                "Descricao": "azul de poliester",
+                "Preco": 23.00
+            },
+            {
+                "Id": 2,
+                "Nome": "Calça jeans",
+                "Descricao": "clara sem bolsos",
+                "Preco": 60.49
+            },
+            {
+                "Id": 3,
+                "Nome": "Camiseta branca",
+                "Descricao": "com símbolo do Nirvana",
+                "Preco": 35.90
+            }
+        ],
+        "Estorno": 119.39,
+        "RealizadaEm": "2024-02-20T13:40:47.5528837-03:00"
+    },
+    {
+        "Id": 1,
+        "NomeCliente": "Eduarda",
+        "Produtos": [
+            {
+                "Id": 2,
+                "Nome": "Calça jeans",
+                "Descricao": "clara sem bolsos",
+                "Preco": 60.49
+            },
+            {
+                "Id": 3,
+                "Nome": "Camiseta",
+                "Descricao": "branca com símbolo do Nirvana",
+                "Preco": 35.90
+            },
+            {
+                "Id": 3,
+                "Nome": "Camiseta",
+                "Descricao": "branca com símbolo do Nirvana",
+                "Preco": 35.90
+            }
+        ],
+        "Estorno": 132.29,
+        "RealizadaEm": "2024-02-20T13:41:18.0172341-03:00"
+    },
+    {
+        "Id": 2,
+        "NomeCliente": "Diego",
+        "Produtos": [
+            {
+                "Id": 1,
+                "Nome": "Blusa",
+                "Descricao": "azul de poliester",
+                "Preco": 23.00
+            },
+            {
+                "Id": 1,
+                "Nome": "Blusa",
+                "Descricao": "azul de poliester",
+                "Preco": 23.00
+            },
+            {
+                "Id": 1,
+                "Nome": "Blusa",
+                "Descricao": "azul de poliester",
+                "Preco": 23.00
+            }
+        ],
+        "Estorno": 69.00,
+        "RealizadaEm": "2024-02-20T13:42:20.2009621-03:00"
+    },
+    {
+        "Id": 3,
+        "NomeCliente": "Maria",
+        "Produtos": [
+            {
+                "Id": 2,
+                "Nome": "Calça jeans",
+                "Descricao": "clara sem bolsos",
+                "Preco": 60.49
+            },
+            {
+                "Id": 3,
+                "Nome": "Camiseta",
+                "Descricao": "branca com símbolo do Nirvana",
+                "Preco": 35.90
+            }
+        ],
+        "Estorno": 96.39,
+        "RealizadaEm": "2024-02-20T13:43:36.5155609-03:00"
+    },
+    {
+        "Id": 4,
+        "NomeCliente": "Maria",
+        "Produtos": [
+            {
+                "Id": 2,
+                "Nome": "Calça jeans",
+                "Descricao": "clara sem bolsos",
+                "Preco": 60.49
+            },
+            {
+                "Id": 4,
+                "Nome": "calça moletom",
+                "Descricao": "cinza",
+                "Preco": 59.98
+            }
+        ],
+        "Estorno": 120.47,
+        "RealizadaEm": "2024-02-20T13:43:41.4356224-03:00"
+    }
+]
