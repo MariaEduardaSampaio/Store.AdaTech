@@ -13,6 +13,15 @@ namespace Store.AdaTech
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("localhost",
+                    builder =>
+                    {
+                        builder.WithOrigins("https://localhost:5500", "https://localhost:7217");
+                    });
+            });
  
             // adicionar repositorios
             builder.Services.AddSingleton<IDevolucaoRepository, DevolucaoRepository>();
@@ -31,16 +40,6 @@ namespace Store.AdaTech
                 options.Filters.Add<CustomExceptionFilter>()
             );
 
-            builder.Services.AddCors(options =>
-            {
-                options.AddPolicy("CustomPolicy",
-                    builder =>
-                    {
-                        builder.WithOrigins("https://localhost:5500", "https://localhost:7217")
-                               .AllowAnyHeader()
-                               .AllowAnyMethod();
-                    });
-            });
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -51,10 +50,10 @@ namespace Store.AdaTech
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+                app.UseCors("localhost");
             }
 
             // adicionar middlewares
-            app.UseCors("CustomPolicy");
             app.UseMiddleware<LoggingMiddleware>();
             app.UseHttpsRedirection();
             app.UseAuthorization();
