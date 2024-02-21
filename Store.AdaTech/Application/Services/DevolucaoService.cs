@@ -5,31 +5,51 @@ using Store.AdaTech.Domain.Requests;
 
 namespace Store.AdaTech.Application.Services
 {
-    public class DevolucaoService: IDevolucaoService
+    public class DevolucaoService : IDevolucaoService
     {
-        private static int _contadorId = 0;
         private IDevolucaoRepository _repository { get; set; }
-        public DevolucaoService(IDevolucaoRepository repository)
+        private IProdutoRepository _produtoRepository { get; set; }
+        private static int _contadorId;
+        public DevolucaoService(IDevolucaoRepository repository, IProdutoRepository produtoRepository)
         {
             _repository = repository;
+            _produtoRepository = produtoRepository;
+            _contadorId = _repository.ListarDevolucoes()?.Any() == true ? _repository.ListarDevolucoes().Last().Id + 1 : 0;
         }
 
         public Devolucao AdicionarDevolucao(DevolucaoRequest request)
         {
             decimal estorno = 0;
-            request.Produtos.ForEach(produto => estorno += produto.Preco);
+            var produtos = ValidarListaDeProdutos(request.IdProdutos);
+            produtos.ForEach(produto => estorno += produto.Preco);
 
             Devolucao devolucao = new()
             {
                 Id = _contadorId++,
                 NomeCliente = request.NomeCliente,
-                Produtos = request.Produtos,
+                Produtos = produtos,
                 Estorno = estorno,
                 RealizadaEm = DateTime.Now
             };
 
             _repository.AdicionarDevolucao(devolucao);
             return devolucao;
+        }
+
+        public List<Produto> ValidarListaDeProdutos(List<int> idProdutos)
+        {
+            List<Produto> produtos = new();
+
+            foreach (var idProduto in idProdutos)
+            {
+                var produto = _produtoRepository.PegarProdutoPorID(idProduto);
+                if (produto is not null)
+                    produtos.Add(produto);
+                else
+                    throw new ArgumentException("Não existe um produto com este ID.");
+            }
+
+            return produtos;
         }
 
         public Devolucao? PegarDevolucaoPorID(int id)
