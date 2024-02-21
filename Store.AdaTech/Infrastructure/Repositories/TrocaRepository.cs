@@ -9,9 +9,9 @@ namespace Store.AdaTech.Infrastructure.Repositories
         private static string? _repositoryJsonPath;
         public TrocaRepository()
         {
-            string _jsonFileName = "Data\\trocas.json";
+            string _jsonFileName = "Infrastructure\\Data\\trocas.json";
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            _repositoryJsonPath = Path.Combine(baseDirectory, _jsonFileName).Replace("bin\\Debug\\net8.0", "");
+            _repositoryJsonPath = Path.Combine(baseDirectory, _jsonFileName).Replace("bin\\Debug\\net8.0\\", "");
         }
 
         private static List<Troca>? PegarDados()
@@ -38,7 +38,7 @@ namespace Store.AdaTech.Infrastructure.Repositories
 
         public void AdicionarTroca(Troca troca)
         {
-            var trocas = PegarDados();
+            var trocas = PegarDados();            
             trocas.Add(troca);
             SalvarDados(trocas);
         }
@@ -55,7 +55,7 @@ namespace Store.AdaTech.Infrastructure.Repositories
 
         public IEnumerable<Troca>? ListarTrocasPorValor(decimal valor)
         {
-            return PegarDados().Where(troca => troca.ValorTotal >= valor);
+            return PegarDados().Where(troca => troca.ValorTotal <= valor);
         }
 
         public Troca? PegarTrocaPorID(int id)

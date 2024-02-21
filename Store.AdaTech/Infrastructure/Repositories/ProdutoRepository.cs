@@ -9,9 +9,9 @@ namespace Store.AdaTech.Infrastructure.Repositories
         private static string? _repositoryJsonPath;
         public ProdutoRepository()
         {
-            string _jsonFileName = "Data\\produtos.json";
+            string _jsonFileName = "Infrastructure\\Data\\produtos.json";
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            _repositoryJsonPath = Path.Combine(baseDirectory, _jsonFileName).Replace("bin\\Debug\\net8.0", "");
+            _repositoryJsonPath = Path.Combine(baseDirectory, _jsonFileName).Replace("bin\\Debug\\net8.0\\", "");
         }
 
         private static List<Produto>? PegarDados()
@@ -50,7 +50,7 @@ namespace Store.AdaTech.Infrastructure.Repositories
 
         public IEnumerable<Produto>? ListarProdutosPorValor(decimal valor)
         {
-            return PegarDados().Where(produto => produto.Preco >= valor);
+            return PegarDados().Where(produto => produto.Preco <= valor);
         }
 
         public Produto? PegarProdutoPorID(int id)

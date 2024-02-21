@@ -9,9 +9,9 @@ namespace Store.AdaTech.Infrastructure.Repositories
         private static string? _repositoryJsonPath;
         public DevolucaoRepository()
         {
-            string _jsonFileName = "Data\\devolucoes.json";
+            string _jsonFileName = "Infrastructure\\Data\\devolucoes.json";
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            _repositoryJsonPath = Path.Combine(baseDirectory, _jsonFileName).Replace("bin\\Debug\\net8.0", "");
+            _repositoryJsonPath = Path.Combine(baseDirectory, _jsonFileName).Replace("bin\\Debug\\net8.0\\", "");
         }
 
         private static List<Devolucao>? PegarDados()
@@ -55,7 +55,7 @@ namespace Store.AdaTech.Infrastructure.Repositories
 
         public IEnumerable<Devolucao>? ListarDevolucoesPorEstorno(decimal valor)
         {
-            return PegarDados().Where(devolucao => devolucao.Estorno >= valor);
+            return PegarDados().Where(devolucao => devolucao.Estorno <= valor);
         }
 
         public Devolucao? PegarDevolucaoPorID(int id)
